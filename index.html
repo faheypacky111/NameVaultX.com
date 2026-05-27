@@ -3,6 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NameVaultX is a curated portfolio of premium domain names for crypto, AI, technology, and personal branding. Discover memorable, brandable domains ready for your next venture.">
+    <meta name="keywords" content="premium domains, domain names for sale, brandable domains, AI domains, crypto domains, .ai domains, premium domain portfolio, NameVaultX">
+    <meta name="author" content="NameVaultX">
+    <meta name="theme-color" content="#222222">
+    <link rel="canonical" href="https://namevaultx.com/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://namevaultx.com/">
+    <meta property="og:title" content="NameVaultX - Premium Domain Portfolio">
+    <meta property="og:description" content="Curated premium domain names for crypto, AI, technology, and personal branding ventures.">
+    <meta property="og:site_name" content="NameVaultX">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://namevaultx.com/">
+    <meta name="twitter:title" content="NameVaultX - Premium Domain Portfolio">
+    <meta name="twitter:description" content="Curated premium domain names for crypto, AI, technology, and personal branding ventures.">
+    <meta name="twitter:site" content="@namevaultx_">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCMXF9DMBY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NCMXF9DMBY');
+    </script>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'%3E%3Ccircle cx='32' cy='32' r='28' stroke='%23E8E8E8' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='19' stroke='%23E8E8E8' stroke-width='1'/%3E%3Ccircle cx='32' cy='32' r='5.5' fill='%23E8E8E8'/%3E%3Ccircle cx='32' cy='8' r='3' fill='%23E8E8E8'/%3E%3Ccircle cx='32' cy='56' r='3' fill='%23E8E8E8'/%3E%3Ccircle cx='8' cy='32' r='3' fill='%23E8E8E8'/%3E%3Ccircle cx='56' cy='32' r='3' fill='%23E8E8E8'/%3E%3C/svg%3E">
     <title>NameVaultX - Premium Domains</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,10 +41,20 @@
             --neon-cyan: #E8E8E8;
             --neon-blue: #BDBDBD;
             --deep-black: #222222;
-            --dark-grey: #2c2c2c;
-            --mid-grey: #363636;
-            --light-grey: #9e9e9e;
+            --light-grey: #a8a8a8;
             --accent-purple: #d0d0d0;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         * {
@@ -431,6 +469,36 @@
             .ticker-item:active { opacity: 0.8; }
             .domain-details .contact-btn:active { background: var(--neon-cyan); color: #222; }
         }
+
+        /* Focus styles for keyboard accessibility */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--neon-cyan);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Respect user motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .bg-grid, .glow-orb { animation: none !important; }
+        }
+
+        /* Reduce background load on smaller devices */
+        @media (max-width: 768px) {
+            .glow-orb-1 { width: 250px; height: 250px; }
+            .glow-orb-2 { width: 300px; height: 300px; }
+        }
+
+        /* Print styles */
+        @media print {
+            .bg-grid, .glow-orb, nav { display: none; }
+            body { background: white; color: black; }
+            .logo, .section-title { color: black !important; -webkit-text-fill-color: black; background: none; }
+        }
     </style>
 </head>
 <body>
@@ -453,6 +521,7 @@
         </header>
 
         <section class="hero">
+            <h1 class="sr-only">NameVaultX — Premium Domain Names for Sale</h1>
             <p>A Domain is a Company's Permanent World Headquarters, its Primary Point of Control, Credibility, and Commerce.</p>
         </section>
 
@@ -460,20 +529,20 @@
             <h2 class="section-title">Featured Domains</h2>
             <p class="section-subtitle">Handpicked, Premium Domain Names Ready to Become the Foundation of Your Next Venture. Each Domain Represents a Unique Opportunity in the Digital Landscape.</p>
 
-            <div class="ticker-wrapper">
-                <div class="ticker-track" id="tickerTrack"></div>
+            <div class="ticker-wrapper" role="region" aria-label="Featured domains carousel" aria-roledescription="carousel">
+                <div class="ticker-track" id="tickerTrack" role="list"></div>
             </div>
 
-            <div class="domain-details" id="domainDetails">
+            <div class="domain-details" id="domainDetails" aria-live="polite" aria-atomic="true">
                 <div class="category" id="detailCategory"></div>
                 <div class="description" id="detailDescription"></div>
-                <a href="#" class="contact-btn" id="detailContact">Contact Us</a>
+                <a href="mailto:admin@namevaultx.com" class="contact-btn" id="detailContact" role="button">Contact Us</a>
             </div>
 
 
         </section>
 
-        <footer id="contact">
+        <footer>
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>NAMEVAULTX</h3>
@@ -535,10 +604,19 @@
             domains.forEach((d, i) => {
                 const item = document.createElement('div');
                 item.className = 'ticker-item';
+                item.setAttribute('role', 'listitem');
+                item.setAttribute('tabindex', '0');
                 item.textContent = d.name;
                 item.addEventListener('click', () => {
                     setActive(i);
                     resetAutoRotate();
+                });
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setActive(i);
+                        resetAutoRotate();
+                    }
                 });
                 track.appendChild(item);
             });
@@ -609,7 +687,25 @@
         buildTicker();
         autoRotate = setInterval(nextDomain, 4000);
 
-        window.addEventListener('resize', () => setActive(activeIndex));
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => setActive(activeIndex), 150);
+        });
+
+        // Pause auto-rotate when tab hidden, resume when visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                clearInterval(autoRotate);
+            } else {
+                resetAutoRotate();
+            }
+        });
+
+        // Respect reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            clearInterval(autoRotate);
+        }
     </script>
 </body>
 </html>
