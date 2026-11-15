@@ -243,8 +243,15 @@
             position: relative;
             width: 100%;
             overflow: hidden;
+            cursor: grab;
+            touch-action: pan-y;
+            user-select: none;
+            -webkit-user-select: none;
             padding: clamp(20px, 4vw, 40px) 0;
         }
+
+        .ticker-wrapper.dragging { cursor: grabbing; }
+        .ticker-wrapper.dragging .ticker-item { cursor: grabbing; }
 
         .ticker-track {
             display: flex;
@@ -587,7 +594,6 @@
             <div class="domain-details" id="domainDetails" aria-live="polite" aria-atomic="true">
                 <div class="category" id="detailCategory"></div>
                 <div class="description" id="detailDescription"></div>
-                <a href="mailto:admin@namevaultx.com" class="contact-btn" id="detailContact" role="button">Contact Us</a>
             </div>
 
 
@@ -725,7 +731,6 @@
 
             document.getElementById('detailCategory').textContent = domain.category;
             document.getElementById('detailDescription').textContent = domain.description;
-            document.getElementById('detailContact').href = 'mailto:admin@namevaultx.com?subject=Inquiry%20About%20' + encodeURIComponent(domain.name);
 
         }
 
@@ -747,22 +752,93 @@
             if (e.key === 'ArrowLeft') { prevDomain(); resetAutoRotate(); }
         });
 
-        // Touch swipe support
-        let touchStartX = 0;
+        // ---- Manual spinning: drag (mouse or finger) and trackpad swipe ----
         const tickerWrapper = document.querySelector('.ticker-wrapper');
         // Focusing or tapping a name can nudge the hidden scroll position; keep it pinned
         tickerWrapper.addEventListener('scroll', () => { tickerWrapper.scrollLeft = 0; });
-        tickerWrapper.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        tickerWrapper.addEventListener('touchend', (e) => {
-            const diff = e.changedTouches[0].screenX - touchStartX;
-            if (Math.abs(diff) > 40) {
-                if (diff < 0) nextDomain();
-                else prevDomain();
+
+        let dragging = false, dragMoved = false, startX = 0, startTranslate = 0, lastX = 0, lastT = 0, velocity = 0;
+
+        function currentTranslate() {
+            const m = new DOMMatrixReadOnly(getComputedStyle(track).transform);
+            return m.m41;
+        }
+
+        // Which name is closest to the middle of the strip right now
+        function nearestToCenter() {
+            const w = tickerWrapper.getBoundingClientRect();
+            const mid = w.left + w.width / 2;
+            let best = activeIndex, bestDist = Infinity;
+            track.querySelectorAll('.ticker-item').forEach((el, i) => {
+                const r = el.getBoundingClientRect();
+                const d = Math.abs(r.left + r.width / 2 - mid);
+                if (d < bestDist) { bestDist = d; best = i; }
+            });
+            return best;
+        }
+
+        tickerWrapper.addEventListener('pointerdown', (e) => {
+            if (e.button !== 0) return;
+            dragging = true; dragMoved = false;
+            startX = lastX = e.clientX; lastT = performance.now(); velocity = 0;
+            startTranslate = currentTranslate();
+            track.style.transition = 'none';
+            track.style.transform = 'translateX(' + startTranslate + 'px)';
+            clearInterval(autoRotate);
+        });
+
+        window.addEventListener('pointermove', (e) => {
+            if (!dragging) return;
+            const dx = e.clientX - startX;
+            if (Math.abs(dx) > 6 && !dragMoved) {
+                dragMoved = true;
+                tickerWrapper.classList.add('dragging');
+                try { tickerWrapper.setPointerCapture(e.pointerId); } catch (_) {}
+            }
+            if (!dragMoved) return;
+            const now = performance.now();
+            velocity = (e.clientX - lastX) / Math.max(1, now - lastT); // px per ms
+            lastX = e.clientX; lastT = now;
+            track.style.transform = 'translateX(' + (startTranslate + dx) + 'px)';
+        });
+
+        function endDrag() {
+            if (!dragging) return;
+            dragging = false;
+            tickerWrapper.classList.remove('dragging');
+            track.style.transition = '';
+            if (dragMoved) {
+                // A fast flick keeps spinning a few extra names
+                const extra = Math.max(-6, Math.min(6, Math.round(-velocity * 4)));
+                let target = nearestToCenter() + extra;
+                target = Math.max(0, Math.min(domains.length - 1, target));
+                setActive(target);
+            }
+            resetAutoRotate();
+        }
+        window.addEventListener('pointerup', endDrag);
+        window.addEventListener('pointercancel', endDrag);
+
+        // Don't open a lander when the click was really the end of a drag
+        track.addEventListener('click', (e) => {
+            if (dragMoved) { e.preventDefault(); e.stopPropagation(); dragMoved = false; }
+        }, true);
+        track.addEventListener('dragstart', (e) => e.preventDefault());
+
+        // Two-finger sideways swipe on a trackpad (or shift + mouse wheel)
+        let wheelAccum = 0, wheelLock = false;
+        tickerWrapper.addEventListener('wheel', (e) => {
+            const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : (e.shiftKey ? e.deltaY : 0);
+            if (!dx) return;              // normal up/down scrolling still scrolls the page
+            e.preventDefault();
+            wheelAccum += dx;
+            if (!wheelLock && Math.abs(wheelAccum) > 40) {
+                wheelAccum > 0 ? nextDomain() : prevDomain();
+                wheelAccum = 0; wheelLock = true;
+                setTimeout(() => { wheelLock = false; }, 180);
                 resetAutoRotate();
             }
-        }, { passive: true });
+        }, { passive: false });
 
         buildTicker();
         autoRotate = setInterval(nextDomain, 4000);
