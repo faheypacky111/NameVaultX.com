@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="NameVaultX">
 
     <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:url" content="https://namevaultx.com/">
     <meta name="twitter:title" content="NameVaultX - Premium Domain Portfolio">
     <meta name="twitter:description" content="Curated premium domain names for crypto, AI, technology, and personal branding ventures.">
@@ -255,11 +255,12 @@
         }
 
         .ticker-item {
+            text-decoration: none;
             font-family: 'Orbitron', sans-serif;
             font-weight: 700;
             white-space: nowrap;
             cursor: pointer;
-            transition: all 0.5s ease;
+            transition: color 0.5s ease, opacity 0.5s ease;
             padding: clamp(6px, 1vw, 10px) clamp(10px, 2vw, 20px);
             border-radius: 8px;
             border: 1px solid transparent;
@@ -424,7 +425,7 @@
             text-decoration: none;
             font-size: clamp(12px, 1.3vw, 13px);
             transition: color 0.3s;
-            word-break: break-word;
+            overflow-wrap: normal;
         }
 
         .footer-section ul li a:hover {
@@ -499,6 +500,11 @@
             body { background: white; color: black; }
             .logo, .section-title { color: black !important; -webkit-text-fill-color: black; background: none; }
         }
+        /* Very small phones: tighten the footer so all three columns fit */
+        @media (max-width: 360px) {
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
     </style>
 </head>
 <body>
@@ -530,24 +536,51 @@
             <p class="section-subtitle">Handpicked, Premium Domain Names Ready to Become the Foundation of Your Next Venture. Each Domain Represents a Unique Opportunity in the Digital Landscape.</p>
 
             <div class="ticker-wrapper" role="region" aria-label="Featured domains carousel" aria-roledescription="carousel">
-                <div class="ticker-track" id="tickerTrack" role="list"></div>
+                <div class="ticker-track" id="tickerTrack"></div>
             </div>
             <noscript>
                 <ul style="list-style:none;max-width:600px;margin:30px auto;text-align:left;line-height:2;">
-                    <li><strong>SixFigureBitcoin.com</strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20SixFigureBitcoin.com">Inquire</a></li>
-                    <li><strong>Seriels.ai</strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Seriels.ai">Inquire</a></li>
-                    <li><strong>Nuked.ai</strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Nuked.ai">Inquire</a></li>
-                    <li><strong>AllForBitcoin.org</strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20AllForBitcoin.org">Inquire</a></li>
-                    <li><strong>BitcoinExplosion.com</strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinExplosion.com">Inquire</a></li>
-                    <li><strong>BitcoinsFormula.com</strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinsFormula.com">Inquire</a></li>
-                    <li><strong>BitcoinJedi.com</strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinJedi.com">Inquire</a></li>
-                    <li><strong>Seaton.org</strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Seaton.org">Inquire</a></li>
-                    <li><strong>Trico.io</strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Trico.io">Inquire</a></li>
-                    <li><strong>Violets.ai</strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Violets.ai">Inquire</a></li>
-                    <li><strong>Darl.org</strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Darl.org">Inquire</a></li>
-                    <li><strong>Avix.org</strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Avix.org">Inquire</a></li>
-                    <li><strong>ITExperts.ai</strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20ITExperts.ai">Inquire</a></li>
-                    <li><strong>HJH.ai</strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20HJH.ai">Inquire</a></li>
+                    <li><strong><a href="https://avix.org/" target="_blank" rel="noopener">Avix.org</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Avix.org">Inquire</a></li>
+                    <li><strong><a href="https://bitcoinexplosion.com/" target="_blank" rel="noopener">BitcoinExplosion.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinExplosion.com">Inquire</a></li>
+                    <li><strong><a href="https://robes.ai/" target="_blank" rel="noopener">Robes.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Robes.ai">Inquire</a></li>
+                    <li><strong><a href="https://aioutputs.com/" target="_blank" rel="noopener">AIOutputs.com</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20AIOutputs.com">Inquire</a></li>
+                    <li><strong><a href="https://yelling.ai/" target="_blank" rel="noopener">Yelling.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Yelling.ai">Inquire</a></li>
+                    <li><strong><a href="https://america250th.com/" target="_blank" rel="noopener">America250th.com</a></strong> — Media & Events — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20America250th.com">Inquire</a></li>
+                    <li><strong><a href="https://allforbitcoin.org/" target="_blank" rel="noopener">AllForBitcoin.org</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20AllForBitcoin.org">Inquire</a></li>
+                    <li><strong><a href="https://sixfigurebitcoin.com/" target="_blank" rel="noopener">SixFigureBitcoin.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20SixFigureBitcoin.com">Inquire</a></li>
+                    <li><strong><a href="https://bitcoinjedi.com/" target="_blank" rel="noopener">BitcoinJedi.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinJedi.com">Inquire</a></li>
+                    <li><strong><a href="https://bitcoinsformula.com/" target="_blank" rel="noopener">BitcoinsFormula.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinsFormula.com">Inquire</a></li>
+                    <li><strong><a href="https://serials.ai/" target="_blank" rel="noopener">Serials.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Serials.ai">Inquire</a></li>
+                    <li><strong><a href="https://kuaishou.org/" target="_blank" rel="noopener">Kuaishou.org</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Kuaishou.org">Inquire</a></li>
+                    <li><strong><a href="https://cryptoautomator.com/" target="_blank" rel="noopener">CryptoAutomator.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20CryptoAutomator.com">Inquire</a></li>
+                    <li><strong><a href="https://ai-powered.org/" target="_blank" rel="noopener">AI-Powered.org</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20AI-Powered.org">Inquire</a></li>
+                    <li><strong><a href="https://settables.com/" target="_blank" rel="noopener">Settables.com</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Settables.com">Inquire</a></li>
+                    <li><strong><a href="https://soldfast.ai/" target="_blank" rel="noopener">SoldFast.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20SoldFast.ai">Inquire</a></li>
+                    <li><strong><a href="https://www.atom.com/name/Trico.io" target="_blank" rel="noopener">Trico.io</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Trico.io">Inquire</a></li>
+                    <li><strong><a href="https://communique.io/" target="_blank" rel="noopener">Communique.io</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Communique.io">Inquire</a></li>
+                    <li><strong><a href="https://pher.ai/" target="_blank" rel="noopener">Pher.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Pher.ai">Inquire</a></li>
+                    <li><strong><a href="https://loyd.org/" target="_blank" rel="noopener">Loyd.org</a></strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Loyd.org">Inquire</a></li>
+                    <li><strong><a href="https://kennels.ai/" target="_blank" rel="noopener">Kennels.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Kennels.ai">Inquire</a></li>
+                    <li><strong><a href="https://woes.ai/" target="_blank" rel="noopener">Woes.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Woes.ai">Inquire</a></li>
+                    <li><strong><a href="https://bitcoinacceptors.com/" target="_blank" rel="noopener">BitcoinAcceptors.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinAcceptors.com">Inquire</a></li>
+                    <li><strong><a href="https://bitcoinnewsdigest.com/" target="_blank" rel="noopener">BitcoinNewsDigest.com</a></strong> — Crypto & Finance — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20BitcoinNewsDigest.com">Inquire</a></li>
+                    <li><strong><a href="https://seaton.org/" target="_blank" rel="noopener">Seaton.org</a></strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Seaton.org">Inquire</a></li>
+                    <li><strong><a href="https://tash.xyz/" target="_blank" rel="noopener">Tash.xyz</a></strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Tash.xyz">Inquire</a></li>
+                    <li><strong><a href="https://itexperts.ai/" target="_blank" rel="noopener">ITExperts.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20ITExperts.ai">Inquire</a></li>
+                    <li><strong><a href="https://rqo.ai/" target="_blank" rel="noopener">RQO.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20RQO.ai">Inquire</a></li>
+                    <li><strong><a href="https://darl.org/" target="_blank" rel="noopener">Darl.org</a></strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Darl.org">Inquire</a></li>
+                    <li><strong><a href="https://carnach.com/" target="_blank" rel="noopener">Carnach.com</a></strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Carnach.com">Inquire</a></li>
+                    <li><strong><a href="https://folds.io/" target="_blank" rel="noopener">Folds.io</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Folds.io">Inquire</a></li>
+                    <li><strong><a href="https://violets.ai/" target="_blank" rel="noopener">Violets.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Violets.ai">Inquire</a></li>
+                    <li><strong><a href="https://rjj.ai/" target="_blank" rel="noopener">RJJ.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20RJJ.ai">Inquire</a></li>
+                    <li><strong><a href="https://nuked.ai/" target="_blank" rel="noopener">Nuked.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Nuked.ai">Inquire</a></li>
+                    <li><strong><a href="https://occoquan.org/" target="_blank" rel="noopener">Occoquan.org</a></strong> — Personal & Branding — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Occoquan.org">Inquire</a></li>
+                    <li><strong><a href="https://slacks.ai/" target="_blank" rel="noopener">Slacks.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20Slacks.ai">Inquire</a></li>
+                    <li><strong><a href="https://pjj.ai/" target="_blank" rel="noopener">PJJ.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20PJJ.ai">Inquire</a></li>
+                    <li><strong><a href="https://rju.ai/" target="_blank" rel="noopener">RJU.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20RJU.ai">Inquire</a></li>
+                    <li><strong><a href="https://gjj.ai/" target="_blank" rel="noopener">GJJ.ai</a></strong> — AI & Technology — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20GJJ.ai">Inquire</a></li>
+                    <li><strong><a href="https://greenhousesoft.com/" target="_blank" rel="noopener">GreenhouseSoft.com</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20GreenhouseSoft.com">Inquire</a></li>
+                    <li><strong><a href="https://spotlightcompute.com/" target="_blank" rel="noopener">SpotlightCompute.com</a></strong> — Business & Tech — <a href="mailto:admin@namevaultx.com?subject=Inquiry%20About%20SpotlightCompute.com">Inquire</a></li>
                 </ul>
             </noscript>
 
@@ -578,7 +611,7 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:admin@namevaultx.com">admin@namevaultx.com</a></li>
+                        <li><a href="mailto:admin@namevaultx.com">admin@<wbr>namevaultx.com</a></li>
                     </ul>
                     <div class="social-icons">
                         <a href="https://x.com/namevaultx_" target="_blank" rel="noopener" aria-label="X (Twitter)">
@@ -597,20 +630,47 @@
 
     <script>
         const domains = [
-            { name: "SixFigureBitcoin.com", category: "Crypto & Finance", description: "Perfect for cryptocurrency investment platforms, Bitcoin trading education, or financial advisory services focused on high-value crypto assets." },
-            { name: "Seriels.ai", category: "AI & Technology", description: "Ideal for AI-powered content platforms, machine learning series products, or sequential data analysis tools in the artificial intelligence space." },
-            { name: "Nuked.ai", category: "AI & Technology", description: "A powerful, brandable domain for disruptive AI startups, data destruction services, or transformative artificial intelligence solutions." },
-            { name: "AllForBitcoin.org", category: "Crypto & Finance", description: "An authoritative domain for Bitcoin advocacy communities, cryptocurrency education nonprofits, or all-in-one Bitcoin resource hubs." },
-            { name: "BitcoinExplosion.com", category: "Crypto & Finance", description: "A high-energy domain for cryptocurrency news platforms, Bitcoin market analysis tools, or viral crypto growth and trading communities." },
-            { name: "BitcoinsFormula.com", category: "Crypto & Finance", description: "Ideal for algorithmic crypto trading platforms, Bitcoin investment strategy guides, or quantitative analysis tools for digital currency markets." },
-            { name: "BitcoinJedi.com", category: "Crypto & Finance", description: "A bold, brandable domain for cryptocurrency influencers, Bitcoin trading masterminds, or crypto education platforms with a sharp edge." },
-            { name: "Seaton.org", category: "Personal & Branding", description: "A clean, professional domain suited for family heritage sites, local community organizations, or personal branding for the Seaton name." },
-            { name: "Trico.io", category: "Business & Tech", description: "A sleek, modern domain ideal for SaaS startups, tech platforms, or innovative business tools — short, punchy, and instantly brandable." },
-            { name: "Violets.ai", category: "AI & Technology", description: "A beautifully evocative domain for AI-powered creative tools, generative art platforms, or nature-inspired artificial intelligence brands." },
-            { name: "Darl.org", category: "Personal & Branding", description: "A short, memorable domain perfect for personal branding, creative portfolios, or community organizations — distinctive and easy to recall." },
-            { name: "Avix.org", category: "Business & Tech", description: "A sharp, modern domain ideal for aviation technology firms, fintech platforms, or innovative tech ventures seeking a strong brand identity." },
-            { name: "ITExperts.ai", category: "AI & Technology", description: "A commanding domain for AI-driven IT consulting firms, managed services platforms, or intelligent tech support and automation solutions." },
-            { name: "HJH.ai", category: "AI & Technology", description: "A rare three-letter .ai domain — ultra-premium and versatile for AI startups, personal brand initials, or cutting-edge technology ventures." }
+            {name: "Avix.org", category: "Business & Tech", description: "A sharp, modern domain ideal for aviation technology firms, fintech platforms, or innovative tech ventures seeking a strong brand identity."},
+            {name: "BitcoinExplosion.com", category: "Crypto & Finance", description: "A high-energy domain for cryptocurrency news platforms, Bitcoin market analysis tools, or viral crypto growth and trading communities."},
+            {name: "Robes.ai", category: "AI & Technology", description: "A short, elegant .ai domain for AI-powered fashion, retail, or lifestyle brands — memorable and instantly brandable."},
+            {name: "AIOutputs.com", category: "AI & Technology", description: "A clear, descriptive .com for AI content platforms, generated-output marketplaces, or tools that manage and evaluate AI results."},
+            {name: "Yelling.ai", category: "AI & Technology", description: "A bold, attention-grabbing .ai domain for AI voice, audio, or marketing tools built to make a brand impossible to ignore."},
+            {name: "America250th.com", category: "Media & Events", description: "A timely, high-recognition domain for commemorative content, events, merchandise, or media celebrating America's 250th anniversary."},
+            {name: "AllForBitcoin.org", category: "Crypto & Finance", description: "An authoritative domain for Bitcoin advocacy communities, cryptocurrency education nonprofits, or all-in-one Bitcoin resource hubs."},
+            {name: "SixFigureBitcoin.com", category: "Crypto & Finance", description: "Perfect for cryptocurrency investment platforms, Bitcoin trading education, or financial advisory services focused on high-value crypto assets."},
+            {name: "BitcoinJedi.com", category: "Crypto & Finance", description: "A bold, brandable domain for cryptocurrency influencers, Bitcoin trading masterminds, or crypto education platforms with a sharp edge."},
+            {name: "BitcoinsFormula.com", category: "Crypto & Finance", description: "Ideal for algorithmic crypto trading platforms, Bitcoin investment strategy guides, or quantitative analysis tools for digital currency markets."},
+            {name: "Serials.ai", category: "AI & Technology", description: "Ideal for AI-powered content platforms, serialized media products, or sequential data and tracking tools in the artificial intelligence space."},
+            {name: "Kuaishou.org", category: "Business & Tech", description: "A distinctive .org domain for community, media, or organizational projects."},
+            {name: "CryptoAutomator.com", category: "Crypto & Finance", description: "A descriptive .com for automated crypto trading bots, portfolio rebalancing tools, or DeFi automation platforms."},
+            {name: "AI-Powered.org", category: "AI & Technology", description: "A versatile domain for AI education hubs, industry associations, or directories showcasing AI-powered products and services."},
+            {name: "Settables.com", category: "Business & Tech", description: "A clean, brandable .com for SaaS configuration tools, settings management platforms, or productivity software."},
+            {name: "SoldFast.ai", category: "AI & Technology", description: "A conversion-focused .ai domain for AI sales tools, real estate selling platforms, or e-commerce acceleration software."},
+            {name: "Trico.io", url: "https://www.atom.com/name/Trico.io", category: "Business & Tech", description: "A sleek, modern domain ideal for SaaS startups, tech platforms, or innovative business tools — short, punchy, and instantly brandable."},
+            {name: "Communique.io", category: "Business & Tech", description: "A polished domain for communications platforms, PR and press release tools, or team messaging software."},
+            {name: "Pher.ai", category: "AI & Technology", description: "A short, four-letter .ai domain — highly brandable for AI startups, research labs, or next-generation tech products."},
+            {name: "Loyd.org", category: "Personal & Branding", description: "A short, classic domain suited for personal branding, family organizations, or foundations bearing the Loyd name."},
+            {name: "Kennels.ai", category: "AI & Technology", description: "A niche-defining .ai domain for AI-powered pet care, kennel booking, or animal boarding management platforms."},
+            {name: "Woes.ai", category: "AI & Technology", description: "A short, memorable .ai domain for AI support tools, complaint resolution platforms, or customer service automation."},
+            {name: "BitcoinAcceptors.com", category: "Crypto & Finance", description: "A descriptive .com for directories of businesses accepting Bitcoin, crypto payment processors, or merchant adoption platforms."},
+            {name: "BitcoinNewsDigest.com", category: "Crypto & Finance", description: "A ready-made media brand for Bitcoin newsletters, crypto news aggregators, or daily market digest publications."},
+            {name: "Seaton.org", category: "Personal & Branding", description: "A clean, professional domain suited for family heritage sites, local community organizations, or personal branding for the Seaton name."},
+            {name: "Tash.xyz", category: "Personal & Branding", description: "A short, punchy domain for personal brands, creative portfolios, or Web3 projects — easy to say and remember."},
+            {name: "ITExperts.ai", category: "AI & Technology", description: "A commanding domain for AI-driven IT consulting firms, managed services platforms, or intelligent tech support and automation solutions."},
+            {name: "RQO.ai", category: "AI & Technology", description: "A rare three-letter .ai domain — ultra-premium and versatile for AI startups, acronym brands, or cutting-edge technology ventures."},
+            {name: "Darl.org", category: "Personal & Branding", description: "A short, memorable domain perfect for personal branding, creative portfolios, or community organizations — distinctive and easy to recall."},
+            {name: "Carnach.com", category: "Personal & Branding", description: "A distinctive, rare .com suited for heritage brands, hospitality, outdoor and travel ventures, or family names."},
+            {name: "Folds.io", category: "Business & Tech", description: "A short, brandable domain for developer tools, data platforms, foldable product brands, or workflow software."},
+            {name: "Violets.ai", category: "AI & Technology", description: "A beautifully evocative domain for AI-powered creative tools, generative art platforms, or nature-inspired artificial intelligence brands."},
+            {name: "RJJ.ai", category: "AI & Technology", description: "A rare three-letter .ai domain — ultra-premium and versatile for AI startups, personal brand initials, or cutting-edge technology ventures."},
+            {name: "Nuked.ai", category: "AI & Technology", description: "A powerful, brandable domain for disruptive AI startups, data destruction services, or transformative artificial intelligence solutions."},
+            {name: "Occoquan.org", category: "Personal & Branding", description: "A geographic domain tied to the Occoquan, Virginia area — ideal for community groups, local tourism, or regional organizations."},
+            {name: "Slacks.ai", category: "AI & Technology", description: "A short, memorable .ai domain for AI-powered fashion and apparel brands, or productivity and workplace AI tools."},
+            {name: "PJJ.ai", category: "AI & Technology", description: "A rare three-letter .ai domain — ultra-premium and versatile for AI startups, personal brand initials, or cutting-edge technology ventures."},
+            {name: "RJU.ai", category: "AI & Technology", description: "A rare three-letter .ai domain — ultra-premium and versatile for AI startups, acronym brands, or cutting-edge technology ventures."},
+            {name: "GJJ.ai", category: "AI & Technology", description: "A rare three-letter .ai domain — ultra-premium and versatile for AI startups, personal brand initials, or cutting-edge technology ventures."},
+            {name: "GreenhouseSoft.com", category: "Business & Tech", description: "A clear, descriptive .com for greenhouse management software, agtech platforms, or controlled-environment farming tools."},
+            {name: "SpotlightCompute.com", category: "Business & Tech", description: "A strong .com for cloud computing providers, GPU and compute marketplaces, or high-performance infrastructure startups."}
         ];
 
         let activeIndex = 0;
@@ -620,21 +680,19 @@
         function buildTicker() {
             track.innerHTML = '';
             domains.forEach((d, i) => {
-                const item = document.createElement('div');
+                const item = document.createElement('a');
                 item.className = 'ticker-item';
-                item.setAttribute('role', 'listitem');
-                item.setAttribute('tabindex', '0');
+                item.href = d.url || ('https://' + d.name.toLowerCase() + '/');
+                item.target = '_blank';
+                item.rel = 'noopener';
                 item.textContent = d.name;
-                item.addEventListener('click', () => {
-                    setActive(i);
-                    resetAutoRotate();
-                });
-                item.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
+                // Side names slide to the center first; the centered name opens its lander
+                item.addEventListener('click', (e) => {
+                    if (i !== activeIndex) {
                         e.preventDefault();
                         setActive(i);
-                        resetAutoRotate();
                     }
+                    resetAutoRotate();
                 });
                 track.appendChild(item);
             });
@@ -655,13 +713,15 @@
             });
 
             const activeItem = items[index];
-            requestAnimationFrame(() => {
-                const wrapper = track.parentElement;
-                const wrapperWidth = wrapper.offsetWidth;
+            const center = () => {
+                track.parentElement.scrollLeft = 0;
+                const wrapperWidth = track.parentElement.offsetWidth;
                 const itemCenter = activeItem.offsetLeft + (activeItem.offsetWidth / 2);
-                const targetX = (wrapperWidth / 2) - itemCenter;
-                track.style.transform = 'translateX(' + targetX + 'px)';
-            });
+                track.style.transform = 'translateX(' + ((wrapperWidth / 2) - itemCenter) + 'px)';
+            };
+            requestAnimationFrame(center);
+            // Re-center once web fonts finish loading (they change name widths)
+            if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (activeIndex === index) center(); });
 
             document.getElementById('detailCategory').textContent = domain.category;
             document.getElementById('detailDescription').textContent = domain.description;
@@ -690,6 +750,8 @@
         // Touch swipe support
         let touchStartX = 0;
         const tickerWrapper = document.querySelector('.ticker-wrapper');
+        // Focusing or tapping a name can nudge the hidden scroll position; keep it pinned
+        tickerWrapper.addEventListener('scroll', () => { tickerWrapper.scrollLeft = 0; });
         tickerWrapper.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
         }, { passive: true });

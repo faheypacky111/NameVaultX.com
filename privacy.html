@@ -253,7 +253,7 @@
             text-decoration: none;
             font-size: clamp(12px, 1.3vw, 13px);
             transition: color 0.3s;
-            word-break: break-word;
+            overflow-wrap: normal;
         }
 
         .footer-section ul li a:hover { color: var(--neon-cyan); }
@@ -333,6 +333,11 @@
             body { background: white; color: black; }
             .logo { color: black !important; -webkit-text-fill-color: black; background: none; }
         }
+        /* Very small phones: tighten the footer so all three columns fit */
+        @media (max-width: 360px) {
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
     </style>
 </head>
 <body>
@@ -408,7 +413,7 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:admin@namevaultx.com">admin@namevaultx.com</a></li>
+                        <li><a href="mailto:admin@namevaultx.com">admin@<wbr>namevaultx.com</a></li>
                     </ul>
                     <div class="social-icons">
                         <a href="https://x.com/namevaultx_" target="_blank" rel="noopener" aria-label="X (Twitter)">
